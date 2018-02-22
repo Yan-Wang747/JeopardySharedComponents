@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
 import java.awt.Component;
+import javafx.scene.layout.Border;
 
 /**
  *
@@ -27,6 +28,7 @@ public class CategoryPanel extends Panel{
         super();
         questionButtons = new ArrayList();
         categoryTextField = new JTextField();
+        categoryTextField.setBorder(BorderFactory.createEtchedBorder());
         this.categoryIndex = categoryIndex;
         this.setLayout(new java.awt.FlowLayout(FlowLayout.CENTER, gap, gap));
         this.gap = gap;
@@ -58,5 +60,9 @@ public class CategoryPanel extends Panel{
     @Override
     public int getBaseline(int width, int height) {
         return 0;
+    }
+    
+    public void disableTextField(){
+        this.categoryTextField.setEditable(false);
     }
 }
