@@ -23,7 +23,7 @@ public class CategoryPanel extends Panel{
     public final int categoryIndex;
     public final int gap;
     
-    public CategoryPanel(String categoryText, int categoryIndex, int gap, Dimension panelSize, Dimension textFieldSize){
+    public CategoryPanel(String categoryText, int categoryIndex, int gap, Dimension panelSize){
         super();
         questionButtons = new ArrayList();
         categoryTextField = new JTextField();
@@ -32,6 +32,7 @@ public class CategoryPanel extends Panel{
         this.gap = gap;
         this.setPreferredSize(panelSize);
         categoryTextField.setText(categoryText);
+        Dimension textFieldSize = new Dimension(panelSize.width - gap, panelSize.height - 2*gap);
         categoryTextField.setPreferredSize(textFieldSize);
         categoryTextField.setHorizontalAlignment(JTextField.CENTER);
         this.add(categoryTextField);
