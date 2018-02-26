@@ -13,7 +13,7 @@ import java.io.*;
  */
 public class QuestionManager extends Observable implements Serializable{
     public final ArrayList<Category> categories;
-    private int doubleCategoryIndex, doubleQuestionIndex;
+    private int doubleCategoryIndex1, doubleQuestionIndex1, doubleCategoryIndex2, doubleQuestionIndex2;
     
     public QuestionManager(){
         categories = new ArrayList();
@@ -21,8 +21,12 @@ public class QuestionManager extends Observable implements Serializable{
     
     public void start(){
         Random rnd = new Random();
-        doubleCategoryIndex = rnd.nextInt(categories.size());
-        doubleQuestionIndex = rnd.nextInt(categories.get(doubleCategoryIndex).questions.size());
+        doubleCategoryIndex1 = rnd.nextInt(categories.size());
+        doubleQuestionIndex1 = rnd.nextInt(categories.get(doubleCategoryIndex1).questions.size());
+        System.out.println(Integer.toString(doubleCategoryIndex1) + " " + Integer.toString(doubleQuestionIndex1));
+        doubleCategoryIndex2 = rnd.nextInt(categories.size());
+        doubleQuestionIndex2 = rnd.nextInt(categories.get(doubleCategoryIndex2).questions.size());
+        System.out.println(Integer.toString(doubleCategoryIndex2) + " " + Integer.toString(doubleQuestionIndex2));
     }
     
     public void addQuestion(Question newQuestion){
@@ -52,7 +56,8 @@ public class QuestionManager extends Observable implements Serializable{
     }
     
     public boolean isDoubleJeopardy(int categoryIndex, int questionIndex){
-        return categoryIndex == this.doubleCategoryIndex && questionIndex == this.doubleQuestionIndex;
+        return categoryIndex == this.doubleCategoryIndex1 && questionIndex == this.doubleQuestionIndex1 ||
+               categoryIndex == this.doubleCategoryIndex2 && questionIndex == this.doubleQuestionIndex1;
     }
     
     public void setCredits(int categoryIndex, int questionIndex, int newCredits){

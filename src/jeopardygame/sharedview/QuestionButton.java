@@ -14,9 +14,9 @@ import javax.swing.JButton;
 public class QuestionButton extends JButton{
     public final int questionIndex;
     
-    public QuestionButton(int questionIndex, Dimension size){
+    public QuestionButton(int questionIndex){
         super();
         this.questionIndex = questionIndex;
-        this.setPreferredSize(size);
     }
+    
 }

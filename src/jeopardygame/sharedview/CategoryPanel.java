@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
 import java.awt.Component;
-import javafx.scene.layout.Border;
-
+import java.awt.Font;
 /**
  *
  * @author student
@@ -41,16 +40,21 @@ public class CategoryPanel extends Panel{
     }
     
     public QuestionButton addNewQuestionButton(String text, ActionListener lisener, Dimension size){
-        QuestionButton newQuestionButton = new QuestionButton(questionButtons.size(), size);
+        QuestionButton newQuestionButton = new QuestionButton(questionButtons.size());
         newQuestionButton.setText(text);
         newQuestionButton.addActionListener(lisener);
-  
+        newQuestionButton.setPreferredSize(size);
+ 
         questionButtons.add(newQuestionButton);
         this.add(newQuestionButton);
         Dimension newSize = this.getPreferredSize();
         newSize.height += size.height + this.gap;
         this.setPreferredSize(newSize);
         return newQuestionButton;
+    }
+    
+    public void setCategoryTextFieldFont(Font font){
+        this.categoryTextField.setFont(font);
     }
     
     @Override
