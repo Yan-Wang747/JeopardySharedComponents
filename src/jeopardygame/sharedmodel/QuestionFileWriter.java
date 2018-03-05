@@ -17,15 +17,11 @@ public class QuestionFileWriter {
         this.questionFile = questionFile;
     }
     
-    public boolean write(QuestionManager theQuestionManager) throws IOException{
-        if(theQuestionManager.getNumOfCategories() == 0)
-            return false;
-        
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(questionFile))) {
-            outputStream.writeObject(theQuestionManager);
-            outputStream.close();
-            
-            return true;
-        }
+    public void write(QuestionManager theQuestionManager) throws IOException{
+        if(theQuestionManager.getNumOfCategories() != 0)
+            try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(questionFile))) {
+                outputStream.writeObject(theQuestionManager);
+                outputStream.close();
+            }
     }
 }

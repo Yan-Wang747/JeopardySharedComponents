@@ -57,7 +57,7 @@ public class QuestionManager extends Observable implements Serializable{
     
     public boolean isDoubleJeopardy(int categoryIndex, int questionIndex){
         return categoryIndex == this.doubleCategoryIndex1 && questionIndex == this.doubleQuestionIndex1 ||
-               categoryIndex == this.doubleCategoryIndex2 && questionIndex == this.doubleQuestionIndex1;
+               categoryIndex == this.doubleCategoryIndex2 && questionIndex == this.doubleQuestionIndex2;
     }
     
     public void setCredits(int categoryIndex, int questionIndex, int newCredits){

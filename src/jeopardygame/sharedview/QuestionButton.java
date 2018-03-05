@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package jeopardygame.sharedview;
-import java.awt.Dimension;
 import javax.swing.JButton;
 
 /**
