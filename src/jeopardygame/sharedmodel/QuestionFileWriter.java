@@ -18,10 +18,9 @@ public class QuestionFileWriter {
     }
     
     public void write(QuestionManager theQuestionManager) throws IOException{
-        if(theQuestionManager.getNumOfCategories() != 0)
-            try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(questionFile))) {
-                outputStream.writeObject(theQuestionManager);
-                outputStream.close();
-            }
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(questionFile))) {
+            outputStream.writeObject(theQuestionManager);
+            outputStream.close();
+        }
     }
 }

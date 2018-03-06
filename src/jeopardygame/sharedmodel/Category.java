@@ -29,6 +29,14 @@ public class Category implements Serializable{
             questions.add(newQuestion);
     }
     
+    public void removeQuestion(int questionIndex){
+        questions.remove(questionIndex);
+    }
+    
+    public int getNumberOfQuestions(){
+        return questions.size();
+    }
+    
     public void setCategoryText(String text){
         this.categoryText = text;
     }

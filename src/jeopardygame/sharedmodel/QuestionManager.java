@@ -32,7 +32,16 @@ public class QuestionManager extends Observable implements Serializable{
     public void addQuestion(Question newQuestion){
         categories.get(newQuestion.categoryIndex).addQuestion(newQuestion.questionIndex, newQuestion);
         this.setChanged();
-        this.notifyObservers(newQuestion);
+        this.notifyObservers();
+    }
+    
+    public void removeQuestion(int categoryIndex, int questionIndex){
+        categories.get(categoryIndex).removeQuestion(questionIndex);
+        if(categories.get(categoryIndex).getNumberOfQuestions() == 0)
+            categories.remove(categoryIndex);
+        
+        this.setChanged();
+        this.notifyObservers();
     }
     
     public void addNewCategory(Category newCategory){
