@@ -56,6 +56,16 @@ public class QuestionManager extends Observable implements Serializable{
         return categories.size();
     }
     
+    public int getNumOfTotalQuestions(){
+        int total = 0;
+    
+        Iterator<Category> it = categories.iterator();
+        while(it.hasNext())
+            total += it.next().getNumberOfQuestions();
+
+        return total;
+    }
+    
     public Category getCategory(int categoryIndex){
         return categories.get(categoryIndex);
     }
