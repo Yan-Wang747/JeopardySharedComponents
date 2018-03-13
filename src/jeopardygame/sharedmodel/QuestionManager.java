@@ -24,8 +24,11 @@ public class QuestionManager extends Observable implements Serializable{
         doubleCategoryIndex1 = rnd.nextInt(categories.size());
         doubleQuestionIndex1 = rnd.nextInt(categories.get(doubleCategoryIndex1).questions.size());
         System.out.println(Integer.toString(doubleCategoryIndex1) + " " + Integer.toString(doubleQuestionIndex1));
-        doubleCategoryIndex2 = rnd.nextInt(categories.size());
-        doubleQuestionIndex2 = rnd.nextInt(categories.get(doubleCategoryIndex2).questions.size());
+        do{
+            doubleCategoryIndex2 = rnd.nextInt(categories.size());
+            doubleQuestionIndex2 = rnd.nextInt(categories.get(doubleCategoryIndex2).questions.size());
+        } while((doubleCategoryIndex2 == doubleCategoryIndex1) && (doubleQuestionIndex2 == doubleQuestionIndex1));
+        
         System.out.println(Integer.toString(doubleCategoryIndex2) + " " + Integer.toString(doubleQuestionIndex2));
     }
     
